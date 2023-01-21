@@ -1,0 +1,7 @@
+.fotofoto{
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+    overflow: scroll;
+}
+
