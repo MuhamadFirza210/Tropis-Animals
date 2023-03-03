@@ -14,14 +14,16 @@
     <table class="table align-middle">
         <tr>
             <th>IMAGE</th>
+            <th>KATEGORI</th>
             <th>TITLE</th>
             <th>BODY</th>
             <th width="25%">ACTION</th>
         </tr>
-        @foreach ($data as $data)
+        @foreach ($datas as $data)
 
         <tr>
             <td><img src="{{ asset('storage/'.$data->image) }}" alt="" style="width: 250px; height: auto;" ></td>
+            <td>{{ $data->kategori->nama }}</td>
             <td>{{ $data->title }}</td>
             <td>{{ $data->bodysingkat }}</td>
             <td><form action="{{ route('berita.destroy', $data->id) }}" method="post">

@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\tentangkamicontroller;
 use App\Http\Controllers\beritacontroller;
 use App\Http\Controllers\galericontroller;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KontaksController;
 use App\Http\Controllers\visimisicontroller;
 use App\Http\Controllers\kontak2controller;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -43,21 +44,20 @@ Route::get('/tentang',[ HomeController::class,'tetangkami']
 Route::get('/galerii',[ HomeController::class,'galeri']
 );
 
+Route::resource('kategori', KategoriController::class);
 
 
 Route::resource('kontak', KontaksController::class);
 
-Route::resource('tentangkami', tentangkamicontroller::class);
+Route::resource('tentangkami', AboutController::class);
 Route::resource('berita', beritacontroller::class);
+
 Route::resource('galeri', galericontroller::class);
 Route::resource('visimisi', visimisicontroller::class);
 Route::resource('kontak2', kontak2controller::class);
 Route::get('/admin',function(){
     return view('layout.admin');
 });
-
-// Route::get('/login', [Logincontroller::class,"index"]);
-// Route::post('/login', [Logincontroller::class,"authenticate"]);
 
 Auth::routes();
 
@@ -72,3 +72,4 @@ Route::get('/welcomes', function () {
 
 Route::get('/beritaa/{berita:slug}',[ HomeController::class,'showberita']
 );
+

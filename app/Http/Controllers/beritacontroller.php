@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\berita;
+use App\Models\kategori;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +17,11 @@ class beritacontroller extends Controller
      */
     public function index()
     {
-        $data = berita::all();
-        return view ('berita.index',compact('data'));
+        // $datas = berita::all();
+        return view ('berita.index', [
+            'datas' => berita::all(),
+
+        ]);
         //
     }
 
@@ -28,7 +32,8 @@ class beritacontroller extends Controller
      */
     public function create()
     {
-          return view('berita.create');
+        $categories = kategori::all();
+        return view('berita.create', compact('categories'));
         //
     }
 
@@ -41,19 +46,21 @@ class beritacontroller extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'image'=>'required|image|file|max:1024',
-            'title'=>'required',
-            'body'=>'required',
-
+            'image' => 'required|image|file|max:1024',
+            'title' => 'required',
+            'id_kategori' => 'required',
+            'body' => 'required',
         ]);
-        $beritas = new berita();
-        $beritas ->image =$request ->file('image')->store('beritafoto');
-        $beritas -> title = $request->title;
-        $beritas -> body = $request->body;
-        $beritas -> bodysingkat = Str::limit(strip_tags($request->body),300);
-        $beritas-> save();
 
-        return redirect('/berita')->with('succes','Data Sukses');
+        $berita = new berita();
+        $berita->image = $request->file('image')->store('beritafoto');
+        $berita->title = $request->title;
+        $berita->id_kategori = $request->id_kategori;
+        $berita->body = $request->body;
+        $berita->bodysingkat = Str::limit(strip_tags($request->body), 100);
+        $berita->save();
+
+        return redirect('/berita')->with('success', 'Data Sukses');
     }
 
     /**
@@ -77,8 +84,9 @@ class beritacontroller extends Controller
      */
     public function edit($id)
     {
+        $categories = kategori::all();
         $data = berita::findOrfail($id);
-        return view ('berita.edit',compact('data'));
+        return view ('berita.edit',compact('data','categories'));
         //
     }
 
@@ -104,8 +112,9 @@ class beritacontroller extends Controller
             $beritas->image = $request->file('image')->store('galeri/beritafoto');
         }
         $beritas->title =$request->title;
+        $beritas->id_kategori =$request->id_kategori;
         $beritas->body =$request->body;
-        $beritas->bodysingkat= Str::limit(strip_tags($request->body),300);
+        $beritas->bodysingkat= Str::limit(strip_tags($request->body),100);
         // dd($beritas);
         $beritas->save();
 

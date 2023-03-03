@@ -15,8 +15,18 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/"        class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">HOME</a>
-            <a href="/tentang" class="nav-item nav-link {{ Request::is('tentang*') ? 'active' : '' }}">TENTANG</a>
+            <a href="/tentang" class="nav-item nav-link {{ Request::is('') ? 'active' : '' }}">TENTANG</a>
             <a href="/beritaa" class="nav-item nav-link {{ Request::is('beritaa*') ? 'active' : '' }}">BERITA</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu bg-light m-0">
+                    <a href="gallery.html" class="dropdown-item">Gallery</a>
+                    <a href="feature.html" class="dropdown-item">Features</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    <a href="404.html" class="dropdown-item">404 Page</a>
+                </div>
+            </div>
             <a href="/galerii" class="nav-item nav-link {{ Request::is('galerii*') ? 'active' : '' }}">FOTO</a>
             <a href="/kontak"  class="nav-item nav-link {{ Request::is('kontak*') ? 'active' : '' }}">KONTAK</a>
         </div>

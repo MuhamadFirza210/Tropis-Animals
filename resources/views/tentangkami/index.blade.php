@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <span class="h1">Admin</span>
-                <button class="btn btn-primary btn-sm" style="float: right;"> <a href="{{ route('tentangkami.create') }}" class="text-white text-decoration-none" >Tambah Data</a> </button>
+                {{-- <button class="btn btn-primary btn-sm" style="float: right;"> <a href="{{ route('tentangkami.create') }}" class="text-white text-decoration-none" >Tambah Data</a> </button> --}}
             </div>
             <div class="card-body">
     <table class="table align-middle">
@@ -15,7 +15,7 @@
             <th>subtitle</th>
             <th width="25%">action</th>
         </tr>
-        @foreach ($data as $data)
+        @foreach ($about as $data)
 
         <tr>
             <td>{{ $data->title }}</td>
@@ -34,10 +34,10 @@
                     <i class="fa-solid fa-eye"></i>
                     Show
                 </a> |
-                <button type="submit" class="btn btn-sm btn-outline-danger"
+                {{-- <button type="submit" class="btn btn-sm btn-outline-danger"
                     onclick="return confirm('Apakah Anda Yakin?')"><i class="fa-solid fa-trash"></i>
                     Delete
-                </button>
+                </button> --}}
             </form></td>
         </tr>
 

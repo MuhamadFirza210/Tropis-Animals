@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
 use App\Models\berita;
 use App\Models\galeri;
@@ -25,7 +26,7 @@ class HomeController extends Controller
         return view('layout.index',[
             'berita' =>berita::all(),
             'galeri' =>galeri::all(),
-            'dataartikel' =>tentangkami::find(1),
+            'dataartikel' =>About::find(1),
             'title' =>"home"
         ]);
 
@@ -35,7 +36,7 @@ class HomeController extends Controller
     {
         return view('layout.tentang',[
             'visimisi'=>visimisi::all(),
-            'dataartikel' =>tentangkami::find(1),
+            'dataartikel' =>About::find(1),
             'title' =>'tentang'
         ]);
 

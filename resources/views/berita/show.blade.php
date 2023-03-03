@@ -7,14 +7,13 @@
                 <h1>Admin</h1>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
-                    @csrf
 
                     <label for="">image</label><br>
                     <img src="{{ asset('storage/'.$data->image) }}" alt="" style="width: 250px; height: auto;" ><br>
                     <label for="">title</label>
                     <input type="text" name = "title" class="form-control " value="{{ $data->title }}" disabled>
-
+                    <label for="">kategori</label>
+                    <input type="text" name = "title" class="form-control " value="{{ $data->kategori->nama }}" disabled>
                     <label for="">body</label>
                     <input type="text" name = "body" class="form-control " value="{{ $data->body }}" disabled>
 
@@ -23,9 +22,7 @@
 
 
                     <br>
-                    <button class="btn btn-primary btn-sm"><a href="/tetangkami"></a></button>
-
-                </form>
+                    <a href="/berita"><button class="btn btn-primary btn-sm">Back</button></a>
             </div>
         </div>
     </div>

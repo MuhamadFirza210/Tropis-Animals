@@ -64,7 +64,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('ASET/1177435.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('ASET/x2/Tropisianimal@2x.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ auth()->user()->name }}</a>
@@ -99,9 +99,10 @@
               <li class="nav-item">
                 <a href="berita" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>berita</p>
+                  <p>Berita</p>
                 </a>
               </li>
+                </ul>
               <li class="nav-item">
                 <a href="galeri" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -120,7 +121,13 @@
                   <p>Kontak</p>
                 </a>
               </li>
-            </ul>
+              <li class="nav-item">
+                <a href="{{ route('kategori.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori</p>
+                </a>
+              </li>
+
           </li>
        </ul>
       </nav>
@@ -170,8 +177,6 @@
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('dist/js/demo.js')}}"></script>
 <script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
 
 </body>

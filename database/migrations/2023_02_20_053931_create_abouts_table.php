@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('beritas', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
             $table->string('title');
-            $table->text('body');
-            $table->text('bodysingkat');
-            $table->string('slug');
-            $table->unsignedBigInteger('id_kategori');
+            $table->string('body');
+            $table->string('bodysingkat');
+            $table->string('subtitle');
             $table->timestamps();
-            $table->foreign('id_kategori')->references('id')->on('kategoris')->onDelete('cascade');
         });
     }
 
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beritas');
+        Schema::dropIfExists('abouts');
     }
 };

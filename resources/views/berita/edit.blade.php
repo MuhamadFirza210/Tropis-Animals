@@ -26,6 +26,19 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                    <br>
+                    <label for="">Kategori</label><br>
+                    <select name="id_kategori" id="">
+                        <option></option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" {{ $data->id_kategori == $category->id ? 'selected' : '' }}>{{ $category->nama }}</option>
+                        @endforeach
+                    </select><br>
+                    @error('id_kategori')
+                        <span class=" invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <label for="">body</label>
                     <input type="text" name = "body" class="form-control @error('body') is-invalid @enderror"value="{{ $data->body }}">
                     @error('body')
